@@ -34,7 +34,7 @@ const onClick =() =>{
 const incompleteTodo = (todo,priority) => {
     const list = document.getElementById('incompleteList')
     const li =document.createElement('li');
-    li.className= 'bg-gray-100 p-2 flex items-center gap-2 rounded-md transform hover:rotate-[3deg]';
+    li.className= 'bg-gray-100 p-2 flex items-center gap-2 rounded-md transform hover:rotate-[2deg]';
     const p=document.createElement('p');
     p.className='flex-1 text-lg break-words whitespace-normal';
     const span = document.createElement('span')
@@ -63,7 +63,7 @@ const incompleteTodo = (todo,priority) => {
             document.getElementById('completeList').removeChild(returnTarget);
         })
         moveTarget.classList.remove('transform')
-        moveTarget.classList.remove('hover:rotate-[3deg]')
+        moveTarget.classList.remove('hover:rotate-[2deg]')
         moveTarget.firstElementChild.classList.add('line-through')
         moveTarget.appendChild(backBtn);
         document.getElementById('completeList').appendChild(moveTarget);
