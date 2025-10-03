@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./todolistIcon.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>ToDo List</title>
+</head>
+<body class="m-0 p-0">
+    <!-- header TodoList and show the priority level -->
+    <header class="w-4/5 mx-auto mt-4">
+        <h1 class="text-2xl text-center font-bold mb-5">Todo List</h1>
+        <div class="my-1 flex justify-center items-center">
+            <p class="font-bold text-lg px-1 w-1/4 text-center max-[430px]:text-[13.5px]">Priority:</p>
+            <p class="inline px-1 w-1/4 font-bold text-center max-[430px]:text-[13.5px]"><span>&#x1F7E0;</span> High</p>
+            <p class="inline px-1 w-1/4 font-bold text-center max-[430px]:text-[13.5px]"><span>&#x1F7E1;</span> Middle</p>
+            <p class="inline px-1 w-1/4 font-bold text-center max-[430px]:text-[13.5px]"><span>&#x1F7E3;</span> Low</p>
+        </div>
+    </header>
+
+    <!-- user input(task & priority) and Add button to put task to incomplete area -->
+    <section class="flex items-center justify-center w-4/5 mx-auto  mt-4">
+        <input type="text" placeholder="Please type your task here" id="add-text" class="w-3/5 h-12 rounded-md border-2 text-center bg-green-200 placeholder-gray-500 transform hover:bg-green-500 hover:text-white">
+            <select id="priority" class="border-2 mx-1 w-1/5 h-12 font-bold rounded-md bg-gray-200 text-center hover:bg-gray-400 max-[520px]:text-[14px]">
+                <option value="" disabled selected hidden>Choose</option>
+                <option value="high" class="bg-orange-300">High</option>
+                <option value="middle" class="bg-yellow-300">Middle</option>
+                <option value="low" class="bg-purple-300">Low</option>
+            </select>
+        <button id="add-button" onclick="onClick()" class="block w-1/5 h-12 rounded-md border-2 bg-blue-200 hover:bg-blue-500 font-bold">Add</button>
+        
+    </section>
+
+    <!-- incomplete task area -->
+    <section class="flex flex-col mt-2 bg-green-200 w-4/5 mx-auto rounded-md">
+        <p class="font-bold mx-auto mt-1 text-lg">Incomplete Task</p>
+        <div class="m-2 ">
+            <ul id="incompleteList" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 w-full">
+        
+                
+            </ul>
+        </div>
+    </section>
+    <!--complete task area  -->
+    <section class=" flex flex-col mt-2 bg-green-500 w-4/5 mx-auto rounded-md">
+        <p class="font-bold mx-auto mt-1 text-lg">Complete Task</p>
+        <div class="m-2">
+            <ul id="completeList" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 w-full">
+                
+                
+            </ul>
+        </div>
+        <div class="flex justify-center">
+        <button onclick="ClearAll()" class="w-2/5 flex justify-center text-lg bg-green-200 rounded-md hover:bg-red-200 mb-3">Clear All</button>
+        </div>
+    </section>
+
+    <section id="confirm" class="hidden fixed inset-0 flex items-center justify-center z-50">
+        <div class="bg-gray-200 p-6 rounded-md border-4 border-solid text-center">
+            <span class="mb-4">&#9888;</span>
+            <p class="mb-4 text-lg">Are you sure to <strong>"clear all"</strong> lists of Complete Tasks?</p>
+            <button id="yesBtn" class="bg-green-500 text-white px-4 py-2 rounded mr-2 hover:bg-green-600">Yes</button>
+            <button id="noBtn" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">No</button>
+        </div>
+
+    </section>
+    
+    <script src="./index.js"></script>
+</body>
+</html>
